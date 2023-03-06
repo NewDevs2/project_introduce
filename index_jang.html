@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 공용 css */
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+#wrap {
+  width: 1920px;
+  height: 1080px;
+}
+/* 헤더 */
+header {
+  width: 100%;
+  height: 176px;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header > div {
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 116px;
+  margin-left: 30px;
+}
+/* 메인 */
+main {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+/* 팀원 리스트 */
+main > nav {
+  width: 100%;
+  height: 74px;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+nav > .team_List {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 20px;
+}
+.team_List > div {
+  /* 팀_리스트 폰트 */
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 58px;
+}
+/* 메인 > 소개 정렬 */
+#container {
+  width: 100%;
+  height: 726px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+/* 메인_좌측 사진 및 이름 */
+.left_Box {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}
+.photo {
+  width: 70%;
+  height: 60%;
+  background-color: aqua;
+  border-radius: 50%;
+}
+.name {
+  width: 70%;
+  height: 30%;
+}
+/* 메인_우측 소개내용 */
+.right_Box {
+  width: 70%;
+  height: 90%;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: center; 
+  border: 1px solid black;
+}
+/* 푸터 */
+footer {
+  width: 100%;
+  height: 104px;
+}
+
+  </style>
+
+</head>
+<body>
+<div id="wrap">
+  <!-- 헤더 -->
+  <header>
+    <div>NewDevs</div>
+  </header> 
+
+  <!-- 메인 -->
+  <main>
+    <nav>
+      <div class="team_List">
+        <div>박준형</div>
+        <div>권예준</div>
+        <div>곽윤호</div>
+        <div>성해경</div>
+        <div>장루빈</div>
+      </div>
+    </nav>
+
+    <div id="container">
+      <!-- 왼쪽 구역 -->
+      <div class="left_Box">
+        <div class="photo">사진</div>
+        <div class="name">이름</div>
+      </div>
+      <!-- 오른쪽 구역 -->
+      <div class="right_Box">
+        <div class="info">소개 내용</div>
+      </div>
+    </div>
+  </main>
+  <!-- 푸터 -->
+  <footer>
+
+  </footer>
+</div>
+<!-- 스크립트 파일 -->
+<script src="./rubin.js"></script>
+</body>
+</html>
