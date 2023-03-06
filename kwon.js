@@ -26,11 +26,11 @@ let infoStyle = {
 }
 
 let infoStylelist = ["  display","justifyContent"];
-let info = ["flex","conter"];
+let infolist = ["flex","conter"];
 
 function ptagStyle(tagName){
   for(let i = 0; i < info.length; i++){
-    tagName.style[infoStylelist[i]] = info[i];
+    tagName.style[infoStylelist[i]] = infolist[i];
   }
 }
 
