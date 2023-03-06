@@ -6,20 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Newdevs - Park</title>
   <style>
+    /* 폰트 */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Karantina:wght@300;400;700&display=swap');
+    /* * 태그에 폰트 일괄적용 */
     * {
       font-family: 'Inter', sans-serif;
       margin: 0px;
       box-sizing: border-box;
     }
-
+    /* 상단부 */
     #top {
       display: flex;
       flex-direction: column;
     }
 
+    /* 팀 이름 */
     .teamname {
-
       display: flex;
       align-items: center;
       font-size: 96px;
@@ -30,6 +32,8 @@
       font-weight: 900;
     }
 
+    
+    /* 팀원 리스트 */
     .members_list {
       display: flex;
       font-size : 48px;
@@ -41,13 +45,14 @@
       justify-content: space-evenly;
       border-bottom: 1px solid black;
     }
-
-    .profile_picture {
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
+    /* 프로필 , 소개문구 영역 */
+    #main {
+      display: flex;
+      width: 100vw;
+      height: 75vh;
     }
-
+    
+    /* 프로필 사진 구간 */
     .profile {
       display: flex;
       flex-direction: column;
@@ -56,18 +61,21 @@
       justify-content: center;
       align-items: center;
     }
-
+    /* 프로필 사진 */
+    .profile_picture {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+    }
+    
     .profile > p {
       margin-top: 20px;
       font-size: 40px;
       text-align: center;
     }
 
-    #main {
-      display: flex;
-      width: 100vw;
-    }
 
+    /* 소개문구 */
     .info {
       display: flex;
       width: 55vw;
@@ -87,11 +95,15 @@
   </style>
 </head>
 <body>
+  <!-- 메인 컨테이너 -->
   <div id="root">
+    <!-- 상단부 -->
     <div id="top">
+      <!-- 팀이름 -->
       <div class="teamname">
         <p>NewDevs_</p>
       </div>
+      <!-- 팀원 리스트 -->
       <div class="members_list">
         <p>PARK</p>
         <p>KWACK</p>
@@ -100,18 +112,23 @@
         <p>JANG</p>
       </div>
     </div>
+    <!-- 중단부 메인 -->
       <div id="main">
         <div class="profile">
+          <!-- 프로필 사진 주소 -->
           <img class = profile_picture src="https://i.kym-cdn.com/photos/images/facebook/001/384/541/1d8.jpg" alt="">
+          <!-- 프로필 이름 -->
           <p>박준형</p>
         </div>
+        <!-- 소개문구 영역 -->
         <div class="info">
           <div class="info_text">
+            <!-- 소개문구 텍스트 -->
             <p>
               사면·감형 및 복권에 관한 사항은 법률로 정한다. 국회는 선전포고, 국군의 외국에의 파견 또는 외국군대의 대한민국 영역안에서의 주류에 대한 동의권을 가진다.<br>
 
               대한민국의 영토는 한반도와 그 부속도서로 한다. 의원을 제명하려면 국회재적의원 3분의 2 이상의 찬성이 있어야 한다. 대통령은 국가의 안위에 관계되는 중대한 교전상태에 있어서 국가를 보위하기 위하여 긴급한 조치가 필요하고 국회의 집회가 불가능한 때에 한하여 법률의 효력을 가지는 명령을 발할 수 있다.
-              
+
             </p>
           </div>
         </div>
