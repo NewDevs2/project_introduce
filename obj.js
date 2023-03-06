@@ -18,3 +18,15 @@
       navFount: ["60%","Inter", "normal", "48px"],
 
     }
+    
+
+    let mainobj = {
+      mainDiv: ["main > div:nth-child(1)", "main > div:nth-child(2)"],
+      mainDivchild: [ "main > div:nth-child(1) > div:nth-child(1) ", "main > div:nth-child(1) > div:nth-child(2)"],
+      mainlayoutStyleOne : ["100%","35%","flex","column","","","green"
+      ],
+      mainlayoutStyleTwo : ["100%","65%","flex","column","","","aqua"
+    ]
+    }
+
+    

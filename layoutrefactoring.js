@@ -24,3 +24,5 @@ childerLayout("header", "div", 1);
 childerLayout("nav", "div", 5);
 childerLayout("main","div",2);
 childerLayout("main > div:nth-child(1)","div",2);
+childerLayout("main > div:nth-child(2)","div",1);
+
