@@ -189,28 +189,42 @@ footer {
 
 
 // 공용 css
-function styleData(Bsizing,Marg,Padi,W,H) {
+function commonStyleData(Bsizing,Marg,Padi) {
 let obj = {
   bsiz : Bsizing,
   mar : Marg,
   pad : Padi,
-  wid : W,
-  hei : H,
   }; return obj;
 }; 
 // 데이터 출처
-function styleSelect(element, sty) {
+function commonStyleSelect(element, sty) {
   element.style.boxSizing = sty.bsiz;
   element.style.margin = sty.mar;
   element.style.padding = sty.pad;
-  element.style.width = sty.wid;
-  element.style.height = sty.hei;
 }
 // wrap 스타일링
-let wrapCommonStyle = styleData("border-box","0","0","1920px","1080px");
+let wrapCommonSty = commonStyleData("border-box","0","0");
 // 함수 실행
-styleSelect(wrap,wrapCommonStyle)
+commonStyleSelect(wrap,wrapCommonSty);
 
+// // 플렉스 스타일링
+// function DisplayStyleData(DIS,F_D,Jus,Ali) {
+// let obj = {
+//   disp : DIS,
+//   fleD : F_D,
+//   justi : Jus,
+//   algn : Ali
+//   }; return obj;
+// }; 
+// const header = document.getElementsByTagName('header');
+// function DisplayStyleSelect(element, sty) {
+//   element.style.display = sty.disp;
+//   element.style.flexDirection = sty.fleD;
+//   element.style.justifyContent = sty.justi;
+//   element.style.alignItems = sty.algn;
+// };
+// let hedaerDisplaySty = DisplayStyleData("flex","row","","center");
+// DisplayStyleSelect(header, hedaerDisplaySty)
 // // 디비전 생성
 // let createDiv = document.createElement('div');
 // createDiv.setAttribute("id","wwww");
