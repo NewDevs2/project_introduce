@@ -194,24 +194,20 @@
       document.getElementById('teamPage').style.display = 'none'
       document.getElementById('articleWrap').style.display = 'flex'
       let userPage = this.innerText;
+      userPicture.setAttribute('src',`./${this.innerText}.jpg`);
       if (userPage === '박준형') {
-        userPicture.setAttribute('src','#');
         userPicture.parentElement.style.cssText = 'background-color: aqua;'
         userName.innerText = '박준형'
       } else if (userPage === '권예준') {
-        userPicture.setAttribute('src','#');
         userPicture.parentElement.style.cssText = 'background-color: bisque;'
         userName.innerText = '권예준'
       } else if (userPage === '곽윤호') {
-        userPicture.setAttribute('src','#');
         userPicture.parentElement.style.cssText = 'background-color: chocolate;'
         userName.innerText = '곽윤호'
       } else if (userPage === '성해경') {
-        userPicture.setAttribute('src','#');
         userPicture.parentElement.style.cssText = 'background-color: darkorange;'
         userName.innerText = '성해경'
       } else if (userPage === '장루빈') {
-        userPicture.setAttribute('src','#');
         userPicture.parentElement.style.cssText = 'background-color: lightgreen;'
         userName.innerText = '장루빈'
       }
