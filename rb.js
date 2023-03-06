@@ -27,25 +27,30 @@ let obj = {
   B : borR
   }; return obj;
 };
-// 프로필 
-let pro = document.querySelector(".profile_picture");
-let profile = document.getElementsByClassName('profile');
-let profileStyle = profile[0].style;
-let profilePic = document.getElementsByClassName('profile_picture')
-// console.dir(profilePic[0]);
-let profilePicStyle = profilePic[0].style;
-// console.dir(profile[0].style);
-function profileStyleSelect(profileStyle,sty) {
-  profileStyle.display = sty.D;
-  profileStyle.flexDirection = sty.F;
-  profileStyle.width = sty.W;
-  profileStyle.height = sty.H;
-  profileStyle.justifyContent = sty.J;
-  profileStyle.alignItems = sty.A;
-  profileStyle.borderRadius = sty.B;
-}
+// 데이터 얻기
+let profile = document.querySelector(".profile"); 
 
+let profilePic = document.querySelector(".profile_picture");
+
+// let profileStyle = profile[0].style;
+// let profilePic = document.getElementsByClassName('profile_picture')
+// // console.dir(profilePic[0]);
+// let profilePicStyle = profilePic[0].style;
+// console.dir(profile[0].style);
+
+// 스타일 선택
+function profileStyleSelect(element,sty) {
+  element.style.display = sty.D;
+  element.style.flexDirection = sty.F;
+  element.style.width = sty.W;
+  element.style.height = sty.H;
+  element.style.justifyContent = sty.J;
+  element.style.alignItems = sty.A;
+  element.style.borderRadius = sty.B;
+}
+// 함수에 밸류값 넣기
 let profileStyling = profileStyleBox("flex","column","35vw","75vh","center","center");
 let profilePicStyling = profileStyleBox("","","350px","350px","","","50%");
-profileStyleSelect(profileStyle,profileStyling);
-profileStyleSelect(profilePicStyle,profilePicStyling)
+// 함수 실행
+profileStyleSelect(profile,profileStyling);
+profileStyleSelect(profilePic,profilePicStyling)
