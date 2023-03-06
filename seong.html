@@ -1,12 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
+
 <body>
-  <div>test파일</div>
+  <script>
+    //태그만드는 함수 생성
+    function CreateDoc(Tag, Parents, attri, attrivalue) {
+      const element = document.createElement(Tag);
+      Parents.appendChild(element);
+      if (attri !== undefined) {
+        element.setAttribute(attri, attrivalue);
+      }
+    }
+
+    //폰트스타일은 다 동일, 사이즈만 지정
+    function FontStyle(Tag, Size) {
+      Tag.style.fontFamily = "'Inter'";
+      Tag.style.fontSize = Size;
+    }
+
+    //body 스타일
+    document.body.style.cssText = "width:100vw; height:100vh;"
+
+    //body안에 div
+    CreateDoc("div", document.body);
+    const Div = document.body.children[1];
+    Div.style.cssText = "width:1920px; height:1080px"
+
+    //header 부분
+    CreateDoc("header", Div);
+    Div.children[0].style.cssText = "width:100%; height:10%; border-bottom:3px solid black"
+    FontStyle(Div.children[0], "96px");
+    Div.children[0].textContent = "NewDevs"
+    //가운데로 오게할거 생각하기.
+
+    //NewDevs를 누르면 새로고침이 됨.
+    Div.children[0].addEventListener("click",function(){
+      window.location.reload();
+    })
+
+    //nav 부분
+    CreateDoc("nav", Div);
+    Div.children[1].style.cssText = "width:100%; height:5%; border-bottom:3px solid black; display:flex; align-items:center;"
+
+    //nav에 각 팀원 이름
+    const name = ["박준형", "권예준", "곽윤호", "성해경", "장루빈"];
+    const memberdetail = {
+      나이:  ["","","","",""],
+      취미:  ["","","","",""],
+      뭐:  ["","","","",""],
+      그런거: ["","","","",""]
+    }
+    //이렇게 객체랑 배열로 각자 넣을 말 묶음 될거같은데.
+    //아님 사람별로 만들어..?
+
+    for (i = 0; i < name.length; i++) {
+      CreateDoc("div", Div.children[1]);
+      Div.children[1].children[i].style.margin = "5px";
+      FontStyle(Div.children[1].children[i], "48px");
+      Div.children[1].children[i].textContent = name[i];
+
+      //클릭 시 메인 부분 바뀔 것.
+      Div.children[1].children[i].addEventListener("click", function () {
+        Main.children[0].children[0].style.background = "blue"
+        // "url(./"+this.innerText+".jpg)";
+        let length = 0;
+        for (let title in memberdetail) {
+          Main.children[0].children[1].textContent = this.innerText;
+          FontStyle(Main.children[0].children[1], "64px");
+
+          //밑에 넣을 데이터 필요.
+          Main.children[1].children[0].children[length].textContent = title + " : " + memberdetail[title]//여기 누른거에 해당하는 숫자가 떠야하는데. 수정필요];
+          length += 1;
+        }
+      })
+    }
+
+    //main 부분
+    CreateDoc("main", Div);
+    const Main = Div.children[2];
+    Main.style.cssText = "width:100%; height:85%; display:flex; justify-content: center; align-items:center; "
+
+    //main 안에 left div
+    CreateDoc("div", Main);
+    Main.children[0].style.cssText = "width:30%; height:100%; display:flex; flex-direction:column; justify-content: center; align-items:center;"
+
+    //사진넣을 라운드부분
+    CreateDoc("div", Main.children[0]);
+    Main.children[0].children[0].style.cssText = "width:510px; height:510px; border-radius:60%;"
+    //아랜 사람별 이미지 넣음 됨
+    Main.children[0].children[0].style.background = "#D9D9D9"
+
+    //이름 나올 P태그
+    CreateDoc("p", Main.children[0]);
+
+    //오른쪽div 부분
+    CreateDoc("div", Main);
+    Main.children[1].style.cssText = "width:60%; height:80%; margin:auto; border:1px solid black"
+
+    //오른쪽 부분 내부
+    CreateDoc("ul", Main.children[1]);
+    Main.children[1].children[0].style.cssText = "width:100%; height:100%; display:flex; flex-direction:column; justify-content:center;"
+
+    const teamtitle = {
+      팀명: "NewDevs",
+      팀장: "박준형",
+      팀원: "권예준, 곽윤호, 성해경, 장루빈",
+      프로젝트명: "?",
+      프로젝트의의: "?"
+    }
+
+    // console.log(teamtitle);
+    let teamtitlelength = 0;
+    for (let title in teamtitle) {
+      CreateDoc("p", Main.children[1].children[0]);
+      Main.children[1].children[0].children[teamtitlelength].textContent = title + " : " + teamtitle[title];
+      FontStyle(Main.children[1].children[0].children[teamtitlelength], "48px")
+      teamtitlelength += 1;
+    }
+
+  </script>
 </body>
+
 </html>
