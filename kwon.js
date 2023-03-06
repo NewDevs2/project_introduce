@@ -5,8 +5,6 @@
 //   display: flex;
 //   justify-content: center;
 // }
-
-
 const info_text = document.getElementsByClassName("info_text");
 const pTag = document.querySelector(".info_text > p ");
 //부모 태그 안에 자식 태그 만들기
@@ -15,23 +13,9 @@ const pTag = document.querySelector(".info_text > p ");
 //     const tag = document.createElement(childTag);
 //     qntag.appendChild(tag);
 // }
-console.log(pTag);
-
+console.log(info_text[0]);
 pTag.style.fontSize = "24px";
-
-let infoStyle = {
-  fontSize : "20xp",
-  display: "flex",
-  justifyContent : "conter"
-}
-
-let infoStylelist = ["  display","justifyContent"];
-let info = ["flex","conter"];
-
-function ptagStyle(tagName){
-  for(let i = 0; i < info.length; i++){
-    tagName.style[infoStylelist[i]] = info[i];
-  }
-}
-
-ptagStyle(info_text);
+info_text[0].style.display = "flex";
+info_text[0].style.justifyContent = "center";
+let infoStylelist = ["display","justifyContent"];
+let infolist = ["flex","center"];
