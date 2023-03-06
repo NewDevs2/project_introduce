@@ -168,19 +168,26 @@
     </main>
   </div>
   <script>
+  /*---------- 타이틀 클릭시 team소개 페이지로 이동 ------------*/
     document.querySelector('#root > header > a').addEventListener('click', titleClick)
 
     function titleClick() {
       document.getElementById('articleWrap').style.display = 'none'
       document.getElementById('teamPage').style.display = 'flex'
     }
-        
-    
+  // ---------------------------------------------------------
+
+
+  /*------------- nav 메뉴에서 이름 클릭 시 해당 인물의 정보 표시 --------------*/
     const nav = document.querySelector('nav')
+
+    // nav > 인물 이름에 이벤트 생성
     for (i=0; i<nav.children.length; i++) {
       nav.children[i].addEventListener('click', userNameClick)
     }
     
+
+    // nav 이름 클릭 이벤트
     function userNameClick() {
       const userPicture = document.querySelector('#photo').children[0];
       const userName = document.getElementById('left').children[1];
@@ -209,6 +216,7 @@
         userName.innerText = '장루빈'
       }
     }
+    // -------------------------------------------------------------------
   </script>
 </body>
 </html>
