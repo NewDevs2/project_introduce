@@ -12,11 +12,11 @@
   margin: 0;
   padding: 0;
 } */
-
+/* 
 #wrap {
   width: 1920px;
   height: 1080px;
-}
+} */
 /* 헤더 */
 header {
   width: 100%;
@@ -99,6 +99,22 @@ nav > .team_List {
   justify-content: center; 
   border: 1px solid black;
 }
+.info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* 개인 소개란 */
+.info > div {
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.info > div:nth-child(3) {
+  display: none;
+}
 /* 푸터 */
 footer {
   width: 100%;
@@ -135,7 +151,13 @@ footer {
       </div>
       <!-- 오른쪽 구역 -->
       <div class="right_Box">
-        <div class="info">소개 내용</div>
+        <div class="info">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+        </div>
       </div>
     </div>
   </main>
@@ -145,6 +167,68 @@ footer {
   </footer>
 </div>
 <!-- 스크립트 파일 -->
-<script src="./rubin.js"></script>
+<script>
+  const wrap = document.getElementById('wrap');
+  // console.log(wrap);
+  const teamList = document.getElementsByClassName("team_List");
+
+  const teamInfo = document.getElementsByClassName('info');
+  console.dir(teamList[0].children)
+  console.dir(teamInfo[0].children)
+  
+  // 팀원 이름 클릭했을 때 해당 팀원 소개 출력
+  for(let i=0; i<teamList[0].children.length; i++) {
+  teamList[0].children[i].addEventListener('click',function() {
+    // 팀인원 만큼 반복
+    for(let i=0; i<teamInfo[0].children.length; i++) {
+      teamInfo[0].children[i].style.display = "flex"
+    }
+  });
+ ;}
+
+
+
+// 공용 css
+function styleData(Bsizing,Marg,Padi,W,H) {
+let obj = {
+  bsiz : Bsizing,
+  mar : Marg,
+  pad : Padi,
+  wid : W,
+  hei : H,
+  }; return obj;
+}; 
+// 데이터 출처
+function styleSelect(element, sty) {
+  element.style.boxSizing = sty.bsiz;
+  element.style.margin = sty.mar;
+  element.style.padding = sty.pad;
+  element.style.width = sty.wid;
+  element.style.height = sty.hei;
+}
+// wrap 스타일링
+let wrapCommonStyle = styleData("border-box","0","0","1920px","1080px");
+// 함수 실행
+styleSelect(wrap,wrapCommonStyle)
+
+// // 디비전 생성
+// let createDiv = document.createElement('div');
+// createDiv.setAttribute("id","wwww");
+// createDiv.textContent = "내용";
+// document.body.appendChild(createDiv);
+
+// function createEl(elName,element,valu,valueName,content,section) {
+//   let elName = document.createElement(element);
+//   elName.setAttribute(valu,valueName);
+//   elName.textContent = content;
+//   document.section.appendChild(elName);
+// }
+
+// let createh1 = createEl("division","div","id","idName","내용입니다","body")
+
+
+// createElSelect(body,createh1);
+
+</script>
 </body>
 </html>
