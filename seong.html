@@ -60,10 +60,10 @@
     //nav에 각 팀원 이름
     const name = ["박준형", "권예준", "곽윤호", "성해경", "장루빈"];
     const memberdetail = {
-      나이:  ["1","","","",""],
-      취미:  ["","2","","",""],
-      뭐:  ["","","3","",""],
-      그런거: ["","","4","4","6"]
+      나이:  ["","","","",""],
+      취미:  ["","","","",""],
+      뭐:  ["","","","",""],
+      그런거: ["","","","",""]
     }
     //이렇게 객체랑 배열로 각자 넣을 말 묶음 될거같은데.
     //아님 사람별로 만들어..?
@@ -79,13 +79,12 @@
         Main.children[0].children[0].style.background = "blue"
         // "url(./"+this.innerText+".jpg)";
         let length = 0;
-        let count = i;
         for (let title in memberdetail) {
           Main.children[0].children[1].textContent = this.innerText;
           FontStyle(Main.children[0].children[1], "64px");
 
           //밑에 넣을 데이터 필요.
-          Main.children[1].children[0].children[length].textContent = title + " : " + memberdetail[title][count]//여기 누른거에 해당하는 숫자가 떠야하는데. 음 응 ];
+          Main.children[1].children[0].children[length].textContent = title + " : " + memberdetail[title]//여기 누른거에 해당하는 숫자가 떠야하는데. 수정필요];
           length += 1;
         }
       })
