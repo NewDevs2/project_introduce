@@ -200,8 +200,24 @@
     };
     // 태그 생성 확인
     // createTag("div", "태그 생성 해볼게", wrap);
-    createTag(3, "div", "id", "s", "sss", wrap)
+    createTag(1, "header", "", "", "header생성", wrap);
+    createTag(1, "main", "", "", "main생성", wrap);
+    createTag(1, "footer", "", "", "footer생성", wrap);
 
+    // 삼쌍둥이 변수 선언
+    const header = document.getElementsByTagName('header');
+    const main = document.getElementsByTagName('main');
+    const footer = document.getElementsByTagName('footer');
+    // console.log(footer);
+
+    // 삼 쌍둥이의 가장 큰 div 생성
+    createTag(1, "div", "", "", "", header[0]);
+    createTag(1, "nav", "", "", "", main[0]);
+    createTag(1, "div", "id", "left_Box", "", main[0]);
+    createTag(1, "div", "id", "right_Box", "", main[0]);
+    // 아이디나 클래스가 없는 태그는 정보를 어떻게 가져오지?
+    // const headerTitle = document.querySelector("div\header");
+    console.log(headerTitle);
     // const teamList = document.getElementsByClassName("team_List");
 
     // const teamInfo = document.getElementsByClassName('info');
