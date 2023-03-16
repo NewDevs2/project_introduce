@@ -267,8 +267,46 @@
       }
     });
 
+    // 스타일 함수
+    // 고정으로 들어갈 밸류 값들
+    const styleBox = {
+      allStyleKey: ["margin", "padding"],
+      sizeStyleKey: ["width", "height"],
+      displayStyleKey: ["display", "flexDirection", "justifyContent", "alignItems", "flexWrap"],
+      fontStyleKey: ["fontFamily", "fontSize", "color", "fontDisplay"],
+      MarginStyleKey: [],
+      BorderStyleKey: [],
+      ColorStyleKey: [],
+      // sizeValue: ["100vw", "100vh"],
+      // allSty: function (styObj, styleValue) {
+      //   for (let i = 0; i < this.allStyleKey.length; i++) {
+      //     styObj.style[this.allStyleKey[i]] = styleValue[i];
+      //   }
+      // }
+      // ,
+      Styling: function (styObj, styleKey, styleValue) {
+        for (let i = 0; i < this.sizeStyleKey.length; i++) {
+          styObj.style[styleKey[i]] = styleValue[i];
+        }
+      }
+    };
+    // test
+    // const bbb = {
+    //   dj: function (a) {
+    //     a.style.display = "flex";
+    //   },
+    //   aas: function (a) {
+    //     a.style.color = 'red';
+    //   }
+    // };
+    // bbb.dj(mainContent)
+    // bbb.aas(mainContent)
+    styleBox.Styling(wrap, styleBox.allStyleKey, ["0", "0"]);
+    styleBox.Styling(wrap, styleBox.sizeStyleKey, ["100vw", "100vh"]);
+    styleBox.Styling(wrap, styleBox.displayStyleKey, ["flex", "column"]);
 
 
+    console.dir(wrap.style);
     // 아이디나 클래스가 없는 태그는 정보를 어떻게 가져오지?
     // const headerTitle = document.querySelector("div\header");
     // console.log(main[0].children)
