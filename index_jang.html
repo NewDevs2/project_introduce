@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>NewDevs의 Hype Text요</title>
   <style>
     /* 공용 css */
     /* * {
@@ -211,13 +211,40 @@
     // console.log(footer);
 
     // 삼 쌍둥이의 가장 큰 div 생성
-    createTag(1, "div", "", "", "", header[0]);
-    createTag(1, "nav", "", "", "", main[0]);
-    createTag(1, "div", "id", "left_Box", "", main[0]);
-    createTag(1, "div", "id", "right_Box", "", main[0]);
+    createTag(1, "div", "", "", "NewDevs", header[0]);
+
+    createTag(1, "nav", "", "", "팀원 명단입니다", main[0]);
+    // nav바
+    let bar = true;
+    const navbar = main[0].children[0];
+    navbar.addEventListener('click', function appendTeamList() {
+      // 버튼을 누르면 display를 바꿈과 동시에 false;
+      let team = document.getElementById('teamList');
+      if (bar === true) {
+        team.style.display = 'none'
+        // false를 할당해줘서 한번더 display를 변경할 수 있게 해준다.
+        bar = false;
+      }
+      else {
+        team.style.display = ''
+        // false가 된 상태이니 if문이 다시 실행되지 않는다 -> else(false)가 실행되기 때문 다시 true로 만들어서 on/off가 가능하게 만든다
+        bar = true;
+      }
+    })
+    // 팀원 명단
+    const teamList = ["박준형", "곽윤호", "권예준", "성해경", "장루빈"];
+    // 팀리스트의이름 출력
+    createTag(1, "ul", "id", "teamList", "", navbar);
+    for (let i = 0; i < 5; i++) {
+      createTag(1, "li", "", "", teamList[i], navbar.children[0])
+    };
+
+    createTag(1, "div", "id", "left_Box", "사진과 이름이 들어갈 겁니다", main[0]);
+
+    createTag(1, "div", "id", "right_Box", "정보가 나올 겁니다", main[0]);
     // 아이디나 클래스가 없는 태그는 정보를 어떻게 가져오지?
     // const headerTitle = document.querySelector("div\header");
-    console.log(headerTitle);
+    console.log(main[0].children)
     // const teamList = document.getElementsByClassName("team_List");
 
     // const teamInfo = document.getElementsByClassName('info');
