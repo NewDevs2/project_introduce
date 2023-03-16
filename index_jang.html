@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NewDevs의 Hype Text요</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="./modules/styling.js"></script>
+  <script src="./modules/element.js"></script>
   <style>
     /* 공용 css */
     /* * {
@@ -19,7 +22,7 @@
   height: 1080px;
 } */
     /* 헤더 */
-    header {
+    /* header {
       width: 100%;
       height: 176px;
       border-bottom: 1px solid black;
@@ -36,111 +39,20 @@
     }
 
     /* 메인 */
-    main {
+    /* main {
       width: 100%;
       height: 800px;
       display: flex;
       flex-direction: column;
-    }
-
-    /* 팀원 리스트 */
-    main>nav {
-      width: 100%;
-      height: 74px;
-      border-bottom: 1px solid black;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    nav>.team_List {
-      width: 40%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      margin-left: 20px;
-    }
-
-    .team_List>div {
-      /* 팀_리스트 폰트 */
-      font-weight: 900;
-      font-size: 48px;
-      line-height: 58px;
-    }
-
-    /* 메인 > 소개 정렬 */
-    #container {
-      width: 100%;
-      height: 726px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-    }
-
-    /* 메인_좌측 사진 및 이름 */
-    .left_Box {
-      width: 30%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .photo {
-      width: 70%;
-      height: 60%;
-      background-color: aqua;
-      border-radius: 50%;
-    }
-
-    .name {
-      width: 70%;
-      height: 30%;
-    }
-
-    /* 메인_우측 소개내용 */
-    .right_Box {
-      width: 70%;
-      height: 90%;
-      display: flex;
-      /* flex-direction: row; */
-      align-items: center;
-      justify-content: center;
-      border: 1px solid black;
-    }
-
-    .info {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* 개인 소개란 */
-    .info>div {
-      background-color: aqua;
-      width: 100%;
-      height: 100%;
-      display: flex;
-    }
-
-    .info>div:nth-child(3) {
-      display: none;
-    }
-
-    /* 푸터 */
-    footer {
-      width: 100%;
-      height: 104px;
     }
   </style>
 
 </head>
 
 <body>
+
   <div id="wrap">
+
     <!-- 헤더
     <header>
       <div>NewDevs</div>
@@ -187,26 +99,15 @@
   <script>
     const wrap = document.getElementById('wrap');
     console.log(wrap);
-    // 태그 생성 함수
-    function createTag(n, tagName, tagValue, valueName, textVal, parent) {
-      // for문으로 원하는 만큼 태그생성
-      for (let i = 0; i < n; i++) {
-        let element = document.createElement(tagName);
-        // 전에 해결하지 못했던 것 -> setAttribute()메서드에 빈 값을 넣으면 에러가 생김 -> if문으로 해결
-        if (valueName !== "") {
-          element.setAttribute(tagValue, valueName)
-        }
-        element.textContent = textVal;
-        parent.appendChild(element);
-      }
-    };
+
+
 
     // createImg(1, wrap,)
     // 테스트
     // createTag("div", "태그 생성 해볼게", wrap);
-    createTag(1, "header", "", "", "header생성", wrap);
-    createTag(1, "main", "", "", "main생성", wrap);
-    createTag(1, "footer", "", "", "footer생성", wrap);
+    createTag(1, "header", "", "", "", wrap);
+    createTag(1, "main", "", "", "", wrap);
+    createTag(1, "footer", "", "", "", wrap);
 
     // 삼쌍둥(머리,가슴,배) 변수 선언
     const header = document.getElementsByTagName('header');
@@ -214,11 +115,16 @@
     const footer = document.getElementsByTagName('footer');
     // console.log(footer);
 
-    // 삼 쌍둥이의 가장 큰 div 생성
-    createTag(1, "div", "", "", "NewDevs", header[0]);
-
+    // 로고 생성 및 클릭시 메인 페이지 이동
+    createTag(1, "div", "id", "logo", "NewDevs", header[0]);
+    const logo = document.getElementById('logo');
+    let mainLink = '//127.0.0.1:5501/index_jang.html'
+    logo.addEventListener('click', function () {
+      location.href = mainLink;
+      location.replace(mainLink);
+    })
     // nav바
-    createTag(1, "nav", "", "", "팀원 명단입니다", main[0]);
+    createTag(1, "nav", "", "", "", main[0]);
     let bar = true;
 
     const navbar = main[0].children[0];
@@ -232,7 +138,7 @@
         bar = false;
       }
       else {
-        team.style.display = ''
+        styleBox.Styling(navbar.children[0], styleBox.displayStyleKey, ["flex", "row", "space-evenly", "center"]);
         // false가 된 상태이니 if문이 다시 실행되지 않는다 -> else(false)가 실행되기 때문 다시 true로 만들어서 on/off가 가능하게 만든다
         bar = true;
       }
@@ -240,73 +146,77 @@
     // 팀원 명단 및 정보
     const teamList = ["박준형", "곽윤호", "권예준", "성해경", "장루빈"];
     const teamGitHub = ["https://github.com/krapli441", "https://github.com/JangRuBin2", "https://github.com/KwonYeJun", "https://github.com/KwakYounHo", "https://github.com/HaekyungS"];
-    const teamEmail = [];
+    const profilePhoto = ["./img/rubin.jpg", "./img/rubin.jpg", "./img/rubin.jpg", "./img/rubin.jpg", "./img/rubin.jpg"];
 
     // 팀원 정보 출력
     createTag(1, "div", "id", "teamList", "", navbar);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < teamList.length; i++) {
       createTag(1, "div", "id", "", teamList[i], navbar.children[0])
     };
     // 팀원 소개 및 팀 이미지가 들어갈 공간
     createTag(1, "div", "id", "mainContent", "", main[0]);
     const mainContent = document.getElementById('mainContent');
     // console.log(mainContent);
-    // 팀원 사진
-    createTag(1, 'img', 'src', "./newDevsTeamPhoto.png", "", mainContent);
+
+
+    // newDevs 단체사진
+    createTag(1, 'img', 'src', "./img/newDevsTeamPhoto.png", "", mainContent);
     // 클릭하면 팀원 소개 나오게 할 이벤트
     appendTeamInfo = true;
     mainContent.addEventListener('click', function () {
       // 이미지 사라지고 팀원 소개
-      if (appendTeamInfo === true)
+      if (appendTeamInfo === true) {
         mainContent.children[0].style.display = 'none';
-      // 팀원 소개 슬라이드 바
-      for (let i = 0; i < teamList.length; i++) {
-        createTag(1, "div", "", "", teamList[i] + teamGitHub[i], mainContent)
         // 무한 생성 안하게
+        for (let i = 0; i < teamList.length; i++) {
+          createTag(1, "div", "class", "item" + [i], teamList[i] + teamGitHub[i], mainContent)
+          let item = document.getElementsByClassName('item' + [i]);
+          styleBox.Styling(item[0], styleBox.sizeStyleKey, ["20%", "20%"]);
+          styleBox.Styling(item[0], styleBox.displayStyleKey, ["flex"])
+        };
         appendTeamInfo = false;
-      }
+      };
     });
-
+    console.log(mainContent)
+    // for (let i = 0; i < teamList.length; i++) {
+    //   let teamEachInfo = document.getElementsByClassName("item" + [i]);
+    //   console.log(teamEachInfo)
+    // }
     // 스타일 함수
     // 고정으로 들어갈 밸류 값들
-    const styleBox = {
-      allStyleKey: ["margin", "padding"],
-      sizeStyleKey: ["width", "height"],
-      displayStyleKey: ["display", "flexDirection", "justifyContent", "alignItems", "flexWrap"],
-      fontStyleKey: ["fontFamily", "fontSize", "color", "fontDisplay"],
-      MarginStyleKey: [],
-      BorderStyleKey: [],
-      ColorStyleKey: [],
-      // sizeValue: ["100vw", "100vh"],
-      // allSty: function (styObj, styleValue) {
-      //   for (let i = 0; i < this.allStyleKey.length; i++) {
-      //     styObj.style[this.allStyleKey[i]] = styleValue[i];
-      //   }
-      // }
-      // ,
-      Styling: function (styObj, styleKey, styleValue) {
-        for (let i = 0; i < this.sizeStyleKey.length; i++) {
-          styObj.style[styleKey[i]] = styleValue[i];
-        }
-      }
-    };
-    // test
-    // const bbb = {
-    //   dj: function (a) {
-    //     a.style.display = "flex";
-    //   },
-    //   aas: function (a) {
-    //     a.style.color = 'red';
-    //   }
-    // };
-    // bbb.dj(mainContent)
-    // bbb.aas(mainContent)
+
+
+    // 공통 스타일링
     styleBox.Styling(wrap, styleBox.allStyleKey, ["0", "0"]);
     styleBox.Styling(wrap, styleBox.sizeStyleKey, ["100vw", "100vh"]);
     styleBox.Styling(wrap, styleBox.displayStyleKey, ["flex", "column"]);
 
+    // header 스타일링
+    styleBox.Styling(header[0], styleBox.sizeStyleKey, ["100%", "10%"]);
+    styleBox.Styling(header[0], styleBox.fontStyleKey, ["", "20px", "red"]);
+    styleBox.Styling(header[0], styleBox.displayStyleKey, ["flex", "", "center", "center"]);
 
-    console.dir(wrap.style);
+    // main 스타일링
+    styleBox.Styling(main[0], styleBox.sizeStyleKey, ["100%", "80%"]);
+    styleBox.Styling(main[0], styleBox.displayStyleKey, ["flex", "column", "space-around", "center"]);
+
+    // navbar 스타일링
+    styleBox.Styling(navbar, styleBox.sizeStyleKey, ["100%", "20%"]);
+
+    // navbar > 팀 리스트 스타일링
+    styleBox.Styling(navbar.children[0], styleBox.displayStyleKey, ["flex", "row", "space-evenly", "center"]);
+    styleBox.Styling(navbar.children[0], styleBox.sizeStyleKey, ["100%", "40%"]);
+    styleBox.Styling(navbar.children[0], styleBox.fontStyleKey, ["", "30px"]);
+
+    // 메인 컨텐츠 스타일링
+    styleBox.Styling(mainContent, styleBox.sizeStyleKey, ["100%", "50%"]);
+
+
+
+    // footer 스타일링
+    styleBox.Styling(footer[0], styleBox.sizeStyleKey, ["100%", "10%"]);
+
+
     // 아이디나 클래스가 없는 태그는 정보를 어떻게 가져오지?
     // const headerTitle = document.querySelector("div\header");
     // console.log(main[0].children)

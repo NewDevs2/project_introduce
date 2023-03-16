@@ -1,0 +1,93 @@
+/* 주석 버튼 안먹어서 걍 여따 치워놈 */
+/* 팀원 리스트 */
+main > nav {
+  width: 100%;
+  height: 74px;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav > .team_List {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 20px;
+}
+
+.team_List > div {
+  /* 팀_리스트 폰트 */
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 58px;
+}
+
+/* 메인 > 소개 정렬 */
+#container {
+  width: 100%;
+  height: 726px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 메인_좌측 사진 및 이름 */
+.left_Box {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  width: 70%;
+  height: 60%;
+  background-color: aqua;
+  border-radius: 50%;
+}
+
+.name {
+  width: 70%;
+  height: 30%;
+}
+
+/* 메인_우측 소개내용 */
+.right_Box {
+  width: 70%;
+  height: 90%;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 개인 소개란 */
+.info > div {
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.info > div:nth-child(3) {
+  display: none;
+}
+
+/* 푸터 */
+footer {
+  width: 100%;
+  height: 104px;
+}
