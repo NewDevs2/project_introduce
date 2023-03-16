@@ -172,6 +172,7 @@
         <div>3</div>
         <div>4</div>
         <div>5</div>
+        
       </div>
     </div>
   </div> -->
@@ -182,15 +183,16 @@
     </footer>  -->
   </div>
   <!-- 스크립트 파일 -->
+  <!-- <img src="./newDevsTeamPhoto.png" alt=""> -->
   <script>
     const wrap = document.getElementById('wrap');
     console.log(wrap);
     // 태그 생성 함수
     function createTag(n, tagName, tagValue, valueName, textVal, parent) {
-      // for문으로 원하는 만큼 생성
+      // for문으로 원하는 만큼 태그생성
       for (let i = 0; i < n; i++) {
         let element = document.createElement(tagName);
-        // 전에 해결하지 못했던 것 -> setAttribute를 했을 때 메서드에 빈 값을 넣으면 에러가 나옴 -> if문으로 해결
+        // 전에 해결하지 못했던 것 -> setAttribute()메서드에 빈 값을 넣으면 에러가 생김 -> if문으로 해결
         if (valueName !== "") {
           element.setAttribute(tagValue, valueName)
         }
@@ -198,13 +200,15 @@
         parent.appendChild(element);
       }
     };
-    // 태그 생성 확인
+
+    // createImg(1, wrap,)
+    // 테스트
     // createTag("div", "태그 생성 해볼게", wrap);
     createTag(1, "header", "", "", "header생성", wrap);
     createTag(1, "main", "", "", "main생성", wrap);
     createTag(1, "footer", "", "", "footer생성", wrap);
 
-    // 삼쌍둥이 변수 선언
+    // 삼쌍둥(머리,가슴,배) 변수 선언
     const header = document.getElementsByTagName('header');
     const main = document.getElementsByTagName('main');
     const footer = document.getElementsByTagName('footer');
@@ -213,10 +217,12 @@
     // 삼 쌍둥이의 가장 큰 div 생성
     createTag(1, "div", "", "", "NewDevs", header[0]);
 
-    createTag(1, "nav", "", "", "팀원 명단입니다", main[0]);
     // nav바
+    createTag(1, "nav", "", "", "팀원 명단입니다", main[0]);
     let bar = true;
+
     const navbar = main[0].children[0];
+    console.log(navbar)
     navbar.addEventListener('click', function appendTeamList() {
       // 버튼을 누르면 display를 바꿈과 동시에 false;
       let team = document.getElementById('teamList');
@@ -231,20 +237,41 @@
         bar = true;
       }
     })
-    // 팀원 명단
+    // 팀원 명단 및 정보
     const teamList = ["박준형", "곽윤호", "권예준", "성해경", "장루빈"];
-    // 팀리스트의이름 출력
-    createTag(1, "ul", "id", "teamList", "", navbar);
+    const teamGitHub = ["https://github.com/krapli441", "https://github.com/JangRuBin2", "https://github.com/KwonYeJun", "https://github.com/KwakYounHo", "https://github.com/HaekyungS"];
+    const teamEmail = [];
+
+    // 팀원 정보 출력
+    createTag(1, "div", "id", "teamList", "", navbar);
     for (let i = 0; i < 5; i++) {
-      createTag(1, "li", "", "", teamList[i], navbar.children[0])
+      createTag(1, "div", "id", "", teamList[i], navbar.children[0])
     };
+    // 팀원 소개 및 팀 이미지가 들어갈 공간
+    createTag(1, "div", "id", "mainContent", "", main[0]);
+    const mainContent = document.getElementById('mainContent');
+    // console.log(mainContent);
+    // 팀원 사진
+    createTag(1, 'img', 'src', "./newDevsTeamPhoto.png", "", mainContent);
+    // 클릭하면 팀원 소개 나오게 할 이벤트
+    appendTeamInfo = true;
+    mainContent.addEventListener('click', function () {
+      // 이미지 사라지고 팀원 소개
+      if (appendTeamInfo === true)
+        mainContent.children[0].style.display = 'none';
+      // 팀원 소개 슬라이드 바
+      for (let i = 0; i < teamList.length; i++) {
+        createTag(1, "div", "", "", teamList[i] + teamGitHub[i], mainContent)
+        // 무한 생성 안하게
+        appendTeamInfo = false;
+      }
+    });
 
-    createTag(1, "div", "id", "left_Box", "사진과 이름이 들어갈 겁니다", main[0]);
 
-    createTag(1, "div", "id", "right_Box", "정보가 나올 겁니다", main[0]);
+
     // 아이디나 클래스가 없는 태그는 정보를 어떻게 가져오지?
     // const headerTitle = document.querySelector("div\header");
-    console.log(main[0].children)
+    // console.log(main[0].children)
     // const teamList = document.getElementsByClassName("team_List");
 
     // const teamInfo = document.getElementsByClassName('info');
