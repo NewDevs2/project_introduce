@@ -41,3 +41,23 @@ const styleBox = {
 // };
 // bbb.dj(mainContent)
 // bbb.aas(mainContent)
+
+// 점심메뉴 랜덤 출력
+const lunch = [
+  "설해돈",
+  "둔산짬뽕",
+  "한식뷔페",
+  "촌두부",
+  "어메이징카츠",
+  "도리가",
+  "굴세상",
+];
+// let pick = Math.floor(Math.random() * lunch.length);
+// console.log(pick);
+function randomSelect(array) {
+  const random = Math.floor(Math.random() * array.length);
+  return array[random];
+}
+
+let lunchChoice = randomSelect(lunch);
+console.log(lunchChoice);
