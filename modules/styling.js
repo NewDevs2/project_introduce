@@ -59,5 +59,6 @@ function randomSelect(array) {
   return array[random];
 }
 
-let lunchChoice = randomSelect(lunch);
-console.log(lunchChoice);
+// let lunchChoice = randomSelect(lunch);
+// console.log(lunchChoice); 이렇게 해도 됑
+console.log(randomSelect(lunch));
