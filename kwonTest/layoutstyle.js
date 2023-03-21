@@ -88,6 +88,7 @@ stylefor(`main>div:nth-child(2)`, maindivStyle);
 tagText("header > div", "NewDevs");
 
 console.log(fountObj.navDiv.length);
+//각자의 이름 마다 내용르 넣어 주고 싶어 함수를 만들어 주어 사용 하였다.
 function testfont(){
 
   for(let i =0; i < fountObj.navDiv.length;i++){
@@ -95,6 +96,9 @@ function testfont(){
   console.log(tag);
   tag.textContent = fountObj.nameText[i];
   
-  }}
+  }
+
+}
+  
   testfont();
 
